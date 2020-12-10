@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "itpApp",
+  "appName": "blankProject",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
