@@ -25,6 +25,17 @@
 
       <ion-button class="ion-margin-top" expand="block">Login</ion-button>
 
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button [routerLink]="['/homeuser']" expand="block" color="success">Go to User Side (for developer)</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button  [routerLink]="['/homeadmin']" expand="block" color="danger">Go to Admin Side (for developer)</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
     </ion-card-content>
   </ion-card>
   
