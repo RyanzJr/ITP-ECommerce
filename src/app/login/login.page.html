@@ -1,29 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Login</ion-card-title>
-    </ion-card-header>
+<ion-content class="login-bg">
   
-    <ion-card-content>
+    <ion-icon name="chevron-back-outline" [routerLink]="['/home']" class="go-back"></ion-icon>
+    <p style="color: #fff; font-size:large; margin-top: -30px; margin-left: 60px;">Back</p>
+  
+  <img src="../../assets/icon/photo6258202916246629524.jpg" style="display: block; margin: 2.5% auto;">
 
+  <ion-card class="login-card">
+    <ion-card-header>
+      <ion-card-subtitle>Sign in to start your session</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
       <ion-item>
-        <ion-label position="stacked">Username</ion-label>
+        <ion-icon name="person-outline" size="small"></ion-icon>
+        <ion-label position="stacked" style="margin-left: 25px; margin-top: -30px;">Username</ion-label>
         <ion-input></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">Password</ion-label>
+      <ion-item style="margin-top:2.5%;">
+        <ion-icon name="lock-closed-outline" size="small"></ion-icon>
+        <ion-label position="stacked" style="margin-left: 25px; margin-top: -30px;">Password</ion-label>
         <ion-input type="password"></ion-input>
       </ion-item>
 
-      <ion-button class="ion-margin-top" expand="block">Login</ion-button>
+      <ion-button class="login-button" expand="block">Login</ion-button>
 
       <ion-grid>
         <ion-row>
@@ -34,10 +34,8 @@
             <ion-button  [routerLink]="['/homeadmin']" expand="block" color="danger">Go to Admin Side (for developer)</ion-button>
           </ion-col>
         </ion-row>
-      </ion-grid>
-
+      </ion-grid>    
     </ion-card-content>
   </ion-card>
-  
 
 </ion-content>
