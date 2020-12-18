@@ -1,30 +1,47 @@
-<ion-app>
-  <ion-menu side="start" menuId="first" contentId="content1">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Navigate</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list>
-        <ion-menu-toggle auto-hide="false">
-          <ion-item>
-            test
-          </ion-item>
-        </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-<ion-router-outlet id="content1"></ion-router-outlet>
-</ion-app>
-
 <ion-header>
-  <ion-toolbar>
-      <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-    <ion-title>
-      Admin
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Idea Details</ion-title>
   </ion-toolbar>
 </ion-header>
+ 
+<ion-content padding>
+ 
+  <ion-item>
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input [(ngModel)]="idea.name"></ion-input>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label position="stacked">Notes</ion-label>
+    <ion-textarea [(ngModel)]="idea.notes" rows="8"></ion-textarea>
+  </ion-item>
+</ion-content>
+ 
+<ion-footer *ngIf="!idea.id">
+  <ion-toolbar color="success">
+    <ion-button expand="full" fill="clear" color="light" (click)="addIdea()">
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      Add Idea
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+ 
+<ion-footer *ngIf="idea.id">
+  <ion-row no-padding text-center>
+    <ion-col size="6">
+      <ion-button expand="block" fill="outline" color="danger" (click)="deleteIdea()">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        Delete
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button expand="block" fill="solid" color="success" (click)="updateIdea()">
+        <ion-icon name="save" slot="start"></ion-icon>
+        Update
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
