@@ -40,6 +40,24 @@ export class HomeadminPage implements OnInit {
     });
   }
 
+  deleteIdea() {
+    this.ideaService.deleteIdea(this.idea.id).then(() => {
+      this.router.navigateByUrl('/homeuser');
+      this.showToast('Idea deleted');
+    }, err => {
+      this.showToast('There was a problem deleting your idea :(');
+    });
+  }
+ 
+  updateIdea() {
+    this.ideaService.updateIdea(this.idea).then(() => {
+      this.router.navigateByUrl('/homeuser');
+      this.showToast('Idea updated');
+    }, err => {
+      this.showToast('There was a problem updating your idea :(');
+    });
+  }
+
   showToast(msg) {
     this.toastCtrl.create({
       message: msg,

@@ -24,11 +24,12 @@ const routes: Routes = [
     loadChildren: () => import('./homeadmin/homeadmin.module').then( m => m.HomeadminPageModule)
   },
   {
+    path: 'homeadmin/:id', 
+  loadChildren: () => import('./homeadmin/homeadmin.module').then( m => m.HomeadminPageModule)
+  },
+  {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
-  { path: 'homeadmin/:id', 
-    loadChildren: './homeadmin/homeadmin.module#HomeadminPageModule' 
   },
 
 ];
