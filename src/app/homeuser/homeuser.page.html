@@ -12,7 +12,7 @@
   </ion-fab>
  
   <ion-list>
-    <ion-item button [routerLink]="['/homeadmin', homeadmin.id]" *ngFor="let idea of (ideas | async)">
+    <ion-item button [routerLink]="['/homeadmin', idea.id]" *ngFor="let idea of (ideas | async)">
       {{ idea.name }}
     </ion-item>
   </ion-list>

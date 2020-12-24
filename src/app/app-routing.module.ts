@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  { path: 'homeadmin/:id', 
+    loadChildren: './homeadmin/homeadmin.module#HomeadminPageModule' 
+  },
+
 ];
 
 @NgModule({
