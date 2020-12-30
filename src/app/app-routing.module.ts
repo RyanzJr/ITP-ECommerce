@@ -28,10 +28,6 @@ const routes: Routes = [
   loadChildren: () => import('./homeadmin/homeadmin.module').then( m => m.HomeadminPageModule)
   },
   {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
     path: 'idea-list',
     loadChildren: () => import('./idea-list/idea-list.module').then( m => m.IdeaListPageModule)
   },
@@ -42,7 +38,9 @@ const routes: Routes = [
   {
     path: 'idea-details/:id', 
   loadChildren: () => import('./idea-details/idea-details.module').then( m => m.IdeaDetailsPageModule)
-  }
+  },
+
+
 
 
 ];

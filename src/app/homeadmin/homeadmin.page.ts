@@ -19,14 +19,14 @@ export class HomeadminPage implements OnInit {
 
   constructor(private menu: MenuController) { }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
+  openAdmin() {
+    this.menu.enable(true, 'admin');
   }
 
 
 
   ngOnInit() {
+    this.openAdmin()
   }
 
 
