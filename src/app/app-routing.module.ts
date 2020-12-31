@@ -38,7 +38,19 @@ const routes: Routes = [
   {
     path: 'idea-details/:id', 
   loadChildren: () => import('./idea-details/idea-details.module').then( m => m.IdeaDetailsPageModule)
+  },  {
+    path: 'account-list',
+    loadChildren: () => import('./manageAccounts/account-list/account-list.module').then( m => m.AccountListPageModule)
   },
+  {
+    path: 'add-account',
+    loadChildren: () => import('./manageAccounts/add-account/add-account.module').then( m => m.AddAccountPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+
 
 
 
