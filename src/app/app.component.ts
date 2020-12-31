@@ -34,30 +34,50 @@ export class AppComponent {
     [  
         { 
         title : 'Products',
-        url   : '/apps',
+        url   : '/home',
         icon  : 'pricetags' 
         },
       { 
         title : 'Profile',  
-        url   : '/book',  
+        url   : '/profile',  
         icon  : 'person'  
       },   
       {  
         title : 'Manage Accounts',  
-        url   : '/paint',  
+        url   : '/account-list',  
         icon  : 'key'   
       },  
       {  
         title : 'Manage Products',  
-        url   : '/contacts',  
+        url   : '/product-list',  
         icon  : 'book'  
       },   
       {
           title : 'Sign Out',
-          url   : '/facebook.com',
+          url   : '/home',
+          icon  : 'log-out'
+      },
+    ];
+
+    this.pagesUser =   
+    [  
+      { 
+        title : 'Products',
+        url   : '/home',
+        icon  : 'pricetags' 
+        },
+      { 
+        title : 'Profile',  
+        url   : '/profile',  
+        icon  : 'person'  
+      },    
+      {
+          title : 'Sign Out',
+          url   : '/home',
           icon  : 'log-out'
       },
     ];  
+
   }  
 
 }
