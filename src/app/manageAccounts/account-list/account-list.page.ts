@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProfileService, User } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-account-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountListPage implements OnInit {
 
-  constructor() { }
+  private users: Observable<User[]>;
 
+  constructor(private profileService: ProfileService) { }
+ 
   ngOnInit() {
+    this.users = this.profileService.getUsers();
   }
 
 }
