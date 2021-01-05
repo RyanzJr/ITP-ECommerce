@@ -12,7 +12,7 @@ export interface User {
   Gender: String,
   Contact: String,
   Company: String,
-  Image: String,
+  Image?: String,
 }
  
 @Injectable({
