@@ -1,9 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>accountList</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header>  
+  <ion-toolbar color="primary">  
+    <ion-buttons slot="start">  
+      <ion-menu-button></ion-menu-button>   
+    </ion-buttons>  
+    <ion-title>  
+      Account List
+    </ion-title>  
+  </ion-toolbar>   
+</ion-header>  
 
 <ion-content>
 
+  <ion-button  color="success" expand="block" [routerLink]="['/add-account']">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-button>
 </ion-content>
