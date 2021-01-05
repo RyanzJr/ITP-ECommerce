@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { ProfileService, User } from 'src/app/services/profile.service';
 
 
 // interface User {
@@ -16,11 +18,15 @@ import { ToastController } from '@ionic/angular';
 })
 export class AddAccountPage implements OnInit {
 
+  private users: Observable<User[]>;
+
   email: string;
   password: string;
 
   constructor(public afAuth: AngularFireAuth,
-    private toastCtrl: ToastController, private router: Router) { }
+    private toastCtrl: ToastController,
+     private router: Router,
+     private profileService: ProfileService) { }
 
   async createAccount() {
 
@@ -70,5 +76,6 @@ export class AddAccountPage implements OnInit {
 
   ngOnInit() {
   }
+
 
 }

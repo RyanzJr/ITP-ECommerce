@@ -8,7 +8,6 @@ export interface User {
   id?: string,
   Username: string,
   Email: String,
-  Password: String,
   Gender: String,
   Contact: String,
   Company: String,
@@ -54,7 +53,7 @@ export class ProfileService {
   }
  
   updateUser(user: User): Promise<void> {
-    return this.userCollection.doc(user.id).update({ Username: user.Username, Email: user.Email, Password: user.Password, Gender: user.Gender, Company: user.Company, Contact:user.Contact });
+    return this.userCollection.doc(user.id).update({ Username: user.Username, Gender: user.Gender, Company: user.Company, Contact:user.Contact });
   }
  
   deleteUser(id: string): Promise<void> {
