@@ -1,9 +1,71 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title>profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <div class = "profileImage">
+    
+      <ion-avatar class="image">
+        <img src="../../assets/icon/pnh_logo.PNG">
+      </ion-avatar>
+    
+
+  </div>
+ <div>
+  <ion-grid class="profile-info"> 
+    <ion-row>
+      <ion-col>
+        <ion-label class="label" position="floating">Name:</ion-label>
+        <ion-input class="info" value="test"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-label class="label" position="floating">Email:</ion-label>
+        <ion-input class="info" value="test"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="label" position="floating">Password:</ion-label>
+        <ion-input class="info" value="test"></ion-input>
+      </ion-col>
+      <ion-col>
+        
+        <ion-label class="label" position="floating">Gender:</ion-label>
+        <ion-select class="info" value="Male" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+        </ion-select>
+
+        
+        
+        
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="label" position="floating">Contact Number:</ion-label>
+        <ion-input class="info" value="test"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-label class="label" position="floating">Company:</ion-label>
+        <ion-input class="info" value="test"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>    
+  </div>
+
+  <ion-toolbar color="success">
+    <ion-button expand="full" fill="clear" color="light">
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      Update Profile
+    </ion-button>
+  </ion-toolbar>
 
 </ion-content>
