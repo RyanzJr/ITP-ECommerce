@@ -2,12 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastController } from '@ionic/angular';
-
-
-// interface User {
-//   email?: string,
-//   password?: string,
-// }
+import { Observable } from 'rxjs';
+import { ProfileService, User } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-add-account',
@@ -16,25 +12,36 @@ import { ToastController } from '@ionic/angular';
 })
 export class AddAccountPage implements OnInit {
 
-  email: string;
+  //will be stored seperately for security reasons
   password: string;
 
+  user: User = {
+    id: "",
+    Username: "Ryan Dan",
+    Email: "",
+    Gender: "",
+    Contact: "",
+    Company: "",
+    Image: "",
+  }
+
   constructor(public afAuth: AngularFireAuth,
-    private toastCtrl: ToastController, private router: Router) { }
+    private toastCtrl: ToastController,
+     private router: Router,
+     private profileService: ProfileService) { }
 
   async createAccount() {
 
     if (this.Validation()) {
       const user = await this.afAuth.createUserWithEmailAndPassword(
-        this.email,
+        this.user.Email,
         this.password
       );
-      this.router.navigateByUrl("/account-list")
       this.showToast("Account created successfully!")
       console.log("Account created successfully!")
-      // console.log(this.email)
-      // console.log(this.password)
-
+      //create profile for new account
+      this.addProfile()
+      this.router.navigateByUrl("/account-list")
     }
 
   }
@@ -42,11 +49,11 @@ export class AddAccountPage implements OnInit {
   Validation() {
     // console.log(this.email)
     // console.log(this.password)
-    if (this.email == null) {
+    if (this.user.Email == null) {
       this.showToast('Email cannot be empty!');
       return false
     }
-    if (!this.email.includes("@")) {
+    if (!this.user.Email.includes("@")) {
       this.showToast('Email is not valid!');
       return false
     }
@@ -70,5 +77,13 @@ export class AddAccountPage implements OnInit {
 
   ngOnInit() {
   }
+
+  addProfile() {
+    this.profileService.addUser(this.user).then(() => {
+    }, err => {
+      this.showToast('There was a problem adding your idea :(');
+    });
+  }
+
 
 }

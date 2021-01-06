@@ -7,12 +7,11 @@ import { Observable } from 'rxjs';
 export interface User {
   id?: string,
   Username: string,
-  Email: String,
-  Password: String,
-  Gender: String,
-  Contact: String,
-  Company: String,
-  Image?: String,
+  Email: string,
+  Gender: string,
+  Contact: string,
+  Company: string,
+  Image?: string,
 }
  
 @Injectable({
@@ -23,7 +22,7 @@ export class ProfileService {
   private userCollection: AngularFirestoreCollection<User>;
  
   constructor(private afs: AngularFirestore) {
-    this.userCollection = this.afs.collection<User>('TestProfileUser');
+    this.userCollection = this.afs.collection<User>('profile');
     this.users = this.userCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
@@ -49,12 +48,12 @@ export class ProfileService {
     );
   }
  
-  addUser(idea: User): Promise<DocumentReference> {
-    return this.userCollection.add(idea);
+  addUser(user: User): Promise<DocumentReference> {
+    return this.userCollection.add(user);
   }
  
   updateUser(user: User): Promise<void> {
-    return this.userCollection.doc(user.id).update({ Username: user.Username, Email: user.Email, Password: user.Password, Gender: user.Gender, Company: user.Company, Contact:user.Contact });
+    return this.userCollection.doc(user.id).update({ Username: user.Username, Gender: user.Gender, Company: user.Company, Contact:user.Contact });
   }
  
   deleteUser(id: string): Promise<void> {
