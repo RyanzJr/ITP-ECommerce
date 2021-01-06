@@ -1,3 +1,4 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-grid>
@@ -14,7 +15,11 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="0" size-md="1"></ion-col>
+        <ion-col size="1" size-md="1">
+          <ion-buttons slot="start">  
+            <ion-menu-button color="dark"></ion-menu-button>   
+          </ion-buttons> 
+        </ion-col>
         <ion-col size="2" size-md="1">
           <img src="../../assets/icon/PNH.png" style="margin-top: 15px; width:80%;">
         </ion-col>
@@ -22,34 +27,70 @@
           <ion-searchbar style="margin-top:20px;"></ion-searchbar>
         </ion-col>
       </ion-row>
-      
-    </ion-grid>  
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-buttons slot="secondary">
-        <ion-button fill="solid">
-          <ion-icon slot="start" name="person-circle"></ion-icon>
-          Contact
-        </ion-button>
-      </ion-buttons>
-      <ion-title>Solid Buttons</ion-title>
-      <ion-buttons slot="primary">
-        <ion-button fill="solid" color="secondary">
-          Help
-          <ion-icon slot="end" name="help-circle"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true">
 
   <div id="container">
-    <strong>I am ready to create my website yayyyyyy Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-grid>
+        <ion-row>
+          <ion-col size="0" size-md="1"></ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/vini_tape.jpg" />
+              <ion-card-content>
+                <ion-card-title>All</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/vini_tape.jpg" />
+              <ion-card-content>
+                <ion-card-title>Hardware</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card  class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/bulb.jpg" />
+              <ion-card-content>
+                <ion-card-title>Lighting</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card  class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/plumbing.jpg" />
+              <ion-card-content>
+                <ion-card-title>Plumbing</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/paint.jpg" />
+              <ion-card-content>
+                <ion-card-title>Paint</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="0" size-md="1"></ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 
 </ion-content>
+
