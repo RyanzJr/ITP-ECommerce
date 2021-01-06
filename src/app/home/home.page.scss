@@ -37,3 +37,32 @@
   background: rgb(214,214,214);
   background: linear-gradient(180deg, rgba(214,214,214,1) 0%, rgba(231,231,231,1) 50%, rgba(255,255,255,1) 100%);
 }
+
+
+@media screen and (min-width: 320px) {
+  .cat-card img{
+    height: 100px;
+  }
+  .cat-card{
+    height: 200px;
+    width: 160px;
+    margin: auto;
+  }
+  }
+  
+  @media screen and (min-width: 758px) {
+    .cat-card img{
+      height: 130px;
+      width: 150px;
+    }
+    .cat-card{
+      height: 200px;
+      width: 150px;
+      margin: auto;
+    }
+    }
+
+  .cat-card ion-card-content ion-card-title{
+    margin: auto;
+    font-size: 20px;
+  }

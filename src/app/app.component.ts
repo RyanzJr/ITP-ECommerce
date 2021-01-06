@@ -13,6 +13,7 @@ export class AppComponent {
 
   pagesUser: any
   pagesAdmin: any
+  pagesPublic: any
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
