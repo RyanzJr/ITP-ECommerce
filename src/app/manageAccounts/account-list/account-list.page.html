@@ -22,8 +22,8 @@
   </ion-fab>
  
   <ion-list>
-    <ion-item button [routerLink]="['/idea-details', idea.id]" *ngFor="let user of (users | async)">
-      {{ user.Username }}
+    <ion-item *ngFor="let user of (users | async)">
+      {{ user.email }}
     </ion-item>
   </ion-list>
 

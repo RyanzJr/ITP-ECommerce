@@ -23,6 +23,7 @@ export class AddAccountPage implements OnInit {
     Contact: "",
     Company: "",
     Image: "",
+    Admin: false
   }
 
   constructor(public afAuth: AngularFireAuth,

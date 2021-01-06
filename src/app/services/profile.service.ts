@@ -12,6 +12,7 @@ export interface User {
   Contact: string,
   Company: string,
   Image?: string,
+  Admin: boolean
 }
  
 @Injectable({

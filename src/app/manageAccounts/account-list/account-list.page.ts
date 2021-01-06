@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ProfileService, User } from 'src/app/services/profile.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-account-list',
