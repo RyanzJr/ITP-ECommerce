@@ -12,7 +12,6 @@ export class ProfilePage implements OnInit {
 
   user: User = {
     Username: '',
-    Email: '',
     Gender:'',
     Contact:'',
     Company:'',
