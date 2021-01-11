@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { getMaxListeners } from 'process';
 import { ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 interface User {
@@ -25,7 +26,8 @@ export class LoginPage implements OnInit {
 
   constructor(public afAuth: AngularFireAuth,
     private toastCtrl: ToastController,
-     private router: Router,) { }
+    private router: Router,
+    private authService: AuthService) { }
 
   async login() {
     const user = await this.afAuth.signInWithEmailAndPassword(
@@ -33,8 +35,33 @@ export class LoginPage implements OnInit {
       this.user.password
     );
     this.showToast("Login Successful!")
-    user.user.email
-      this.router.navigateByUrl("/")
+    //check currentuser email
+    this.router.navigateByUrl("/homeadmin")
+    console.log("email:" + (await this.afAuth.currentUser).email)
+  }
+
+  Validation() {
+    if (this.user.email == null) {
+      this.showToast('Email cannot be empty!');
+      return false
+    }
+    if (!this.user.email.includes("@")) {
+      this.showToast('Email is not valid!');
+      return false
+    }
+    if (this.user.password == null) {
+      this.showToast('Password cannot be empty!');
+      return false
+    }
+
+    return true;
+  }
+
+  SignIn() {
+    this.authService.SignIn(this.user.email, this.user.password).then(() => {
+    }, err => {
+      this.showToast('There a problem signing in :(');
+    });
   }
 
   showToast(msg) {

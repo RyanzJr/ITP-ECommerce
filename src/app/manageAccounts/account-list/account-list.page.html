@@ -23,8 +23,14 @@
  
   <ion-list>
     <ion-item *ngFor="let user of (users | async)">
-      {{ user.email }}
+      Email:{{ user.Email }} || Name:{{user.Username}} || Company:{{user.Company}} || Admin:{{user.Admin}}
+
+      <ion-button slot="end">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+      
     </ion-item>
+
   </ion-list>
 
 </ion-content>
