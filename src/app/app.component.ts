@@ -79,6 +79,39 @@ export class AppComponent {
       },
     ];  
 
+    this.pagesPublic =   
+    [  
+      { 
+        title : 'All Products',
+        url   : '/home',
+        icon  : 'pricetags' 
+      },
+      { 
+        title : 'Hardware',
+        url   : '/home',
+        icon  : 'pricetags' 
+      },
+      { 
+        title : 'Lighting',
+        url   : '/home',
+        icon  : 'pricetags' 
+      },
+      { 
+        title : 'Plumbing',
+        url   : '/home',
+        icon  : 'pricetags' 
+      },
+      { 
+        title : 'Paint',
+        url   : '/home',
+        icon  : 'pricetags' 
+      },
+      { 
+        title : 'Electrical',
+        url   : '/home',
+        icon  : 'pricetags' 
+      }
+    ];
   }  
 
 }

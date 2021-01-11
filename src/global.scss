@@ -24,3 +24,43 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+    --ion-color-pnh: #ffa500;
+    --ion-color-pnh-rgb: 255,165,0;
+    --ion-color-pnh-contrast: #ffffff;
+    --ion-color-pnh-contrast-rgb:255,255,255;  
+    --ion-color-pnh-shade: #e09100;
+    --ion-color-pnh-tint: #ffae1a;
+  }
+  
+  .ion-color-pnh {
+    --ion-color-base: var(--ion-color-pnh);
+    --ion-color-base-rgb: var(--ion-color-pnh-rgb);
+    --ion-color-contrast: var(--ion-color-pnh-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-pnh-contrast-rgb);
+    --ion-color-shade: var(--ion-color-pnh-shade);
+    --ion-color-tint: var(--ion-color-pnh-tint);
+  }
+
+  :root {
+    --ion-color-tertiary: #80adff;
+    --ion-color-tertiary-rgb: 128,173,255;
+    --ion-color-tertiary-contrast: #FFFFFF;
+    --ion-color-tertiary-contrast-rgb: 255,255,255;
+    --ion-color-tertiary-shade: #7198e0;
+    --ion-color-tertiary-tint: #8db5ff;
+  }
+  
+  .ion-color-tertiary {
+    --ion-color-base: var(--ion-color-tertiary);
+    --ion-color-base-rgb: var(--ion-color-tertiary-rgb);
+    --ion-color-contrast: var(--ion-color-tertiary-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-tertiary-contrast-rgb);
+    --ion-color-shade: var(--ion-color-tertiary-shade);
+    --ion-color-tint: var(--ion-color-tertiary-tint);
+  }
+  
+  
+  
+  

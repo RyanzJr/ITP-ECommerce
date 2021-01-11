@@ -1,11 +1,16 @@
+
+
 #container {
   text-align: center;
 
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: 0;
   transform: translateY(-50%);
+
+  z-index: 1;
+  position:relative;
 }
 
 #container strong {
@@ -34,19 +39,27 @@
 }
 
 #top-nav {
-  background: rgb(214,214,214);
-  background: linear-gradient(180deg, rgba(214,214,214,1) 0%, rgba(231,231,231,1) 50%, rgba(255,255,255,1) 100%);
+  background: rgb(245, 245, 245);
 }
 
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 758px) {
   .cat-card img{
     height: 100px;
+    width: 160px;
+  }
+  .cat-card button{
+    height: 200px;
+    width: 160px;
+    margin: 0px auto;
   }
   .cat-card{
     height: 200px;
     width: 160px;
-    margin: auto;
+    margin: 5px auto;
+  }
+  #container ion-grid ion-row{
+    margin-top: 200px;
   }
   }
   
@@ -65,4 +78,17 @@
   .cat-card ion-card-content ion-card-title{
     margin: auto;
     font-size: 20px;
+  }
+
+
+  body, html {
+    height: 100%;
+  }
+  
+  .img-home{
+    background-image: url("../../assets/icon/pnh_bg.jpg");
+    height: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
