@@ -30,8 +30,9 @@ export class HomeadminPage implements OnInit {
   const user = await this.isLoggedIn()
   if (user) {
     console.log("user is logged in")
+    this.openAdminMenu()
   } else {
-    console.log("user is NOT NOT logged in")
+    console.log("user is NOTNOTNOT logged in")
     this.showToast("Please login first!")
     this.router.navigateByUrl("/login")
  }
@@ -45,7 +46,7 @@ export class HomeadminPage implements OnInit {
       this.router.navigateByUrl("/home")
     }
 
-  openAdmin() {
+  openAdminMenu() {
     this.menu.enable(true, 'admin');
   }
 

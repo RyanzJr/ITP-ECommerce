@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService, Idea } from 'src/app/services/firebase.service';
-import { Observable } from 'rxjs';
+import { ToastController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { first } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-homeuser',
@@ -10,17 +15,58 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomeuserPage implements OnInit {
  
-  private ideas: Observable<Idea[]>;
  
-  constructor(private ideaService: FirebaseService, private menu: MenuController) { }
+  constructor(private menu: MenuController,
+    public afAuth: AngularFireAuth,
+    private router: Router,
+    private toastCtrl: ToastController,
+    private authService: AuthService) { }
 
-  openUser() {
-    this.menu.enable(true, 'user');
+    isLoggedIn() {
+      return this.afAuth.authState.pipe(first()).toPromise();
+   }
+  
+   async doSomething() {
+    const user = await this.isLoggedIn()
+    if (user) {
+      console.log("user is logged in")
+      this.openUserMenu()
+    } else {
+      console.log("user is NOTNOTNOT logged in")
+      this.showToast("Please login first!")
+      this.router.navigateByUrl("/login")
+   }
   }
- 
-  ngOnInit() {
-    this.ideas = this.ideaService.getIdeas();
-    this.openUser();
-  }
+  
+    async logOut() {
+        this.SignOut()
+        this.showToast("Sign Out Successful!")
+        console.log("user has logged out")
+        console.log("email:" + (await this.afAuth.currentUser).email)
+        this.router.navigateByUrl("/home")
+      }
+  
+    openUserMenu() {
+      this.menu.enable(true, 'user');
+    }
+  
+    SignOut() {
+      this.authService.SignOut().then(() => {
+      }, err => {
+        this.showToast('There a problem signing out :(');
+      });
+    }
+  
+    showToast(msg) {
+      this.toastCtrl.create({
+        message: msg,
+        duration: 2000
+      }).then(toast => toast.present());
+    }
+  
+    ngOnInit() {
+      this.doSomething()
+    }
+  
 
 }

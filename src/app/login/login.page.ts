@@ -57,6 +57,10 @@ export class LoginPage implements OnInit {
     return true;
   }
 
+  CheckUserRole(){
+    
+  }
+
   SignIn() {
     this.authService.SignIn(this.user.email, this.user.password).then(() => {
     }, err => {

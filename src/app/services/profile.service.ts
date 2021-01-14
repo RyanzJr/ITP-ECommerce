@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, 
   DocumentReference } from '@angular/fire/firestore';
-import { map, take } from 'rxjs/operators';
+import { first, map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
  
 export interface User {
@@ -48,6 +48,11 @@ export class ProfileService {
       })
     );
   }
+
+//   getUserByEmail(email: string): Observable<User> {
+//     return this.afs.collection<User>('ideas', ref => ref.where('uid', '==', email).limit(1))
+//     .valueChanges().pipe();
+// }
  
   addUser(user: User): Promise<DocumentReference> {
     return this.userCollection.add(user);
