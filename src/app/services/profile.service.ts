@@ -71,8 +71,11 @@ export class ProfileService {
     this.afs.collection<User>('profile', ref => ref.where('Email', '==', email).limit(1)).valueChanges().subscribe(data => console.log(data))
 
     return this.afs.collection<User>('profile', ref => ref.where('Email', '==', email).limit(1)).valueChanges().pipe(
-      take(1)
+      take(1),
+     
     );
+
+  
 
     // const myObserver = {
     //   next: x => profileObj = x,

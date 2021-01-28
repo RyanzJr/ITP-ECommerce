@@ -16,9 +16,12 @@
  
   <ion-list>
     <ion-item button [routerLink]="['/idea-details', idea.id]" *ngFor="let idea of (ideas | async)">
+      <ion-thumbnail slot="start">
+        <img [src]="idea.image">
+      </ion-thumbnail>
       {{ idea.name }}
     </ion-item>
   </ion-list>
 
-  <p>{{ideas.Name}}</p>
+  
 </ion-content>

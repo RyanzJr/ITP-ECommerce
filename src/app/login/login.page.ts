@@ -17,7 +17,7 @@ interface logindetails {
 }
 
 interface User {
-  id?: string,
+  id?: String,
   Username: string,
   Email?: string,
   Gender: string,
@@ -69,6 +69,7 @@ export class LoginPage implements OnInit {
 
   CheckBtn(){
     console.log(this.currentProfile)
+    console.log(this.currentProfile.id)
     console.log("----------------------------")
   }
 
