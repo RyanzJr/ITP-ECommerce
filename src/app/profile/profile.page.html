@@ -8,14 +8,17 @@
 </ion-header>
 
 <ion-content padding>
-  <div class = "profileImage">
+  <div class = "profileImage" >
     
       
-        <img src="../../assets/icon/PNH.png" height='30%' width='30%'>
+        <img [src]="user.Image" height='30%' width='30%'>
     
     
 
   </div>
+  <ion-item>
+    <input type="file" name="inputFile" (change)="chooseFile($event)" required >  
+  </ion-item>
  <div>
   <ion-grid class="profile-info"> 
     <ion-row>
