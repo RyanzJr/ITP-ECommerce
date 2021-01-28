@@ -59,7 +59,7 @@ export class ProfileService {
   }
  
   updateUser(user: User): Promise<void> {
-    return this.userCollection.doc(user.id).update({ Username: user.Username, Gender: user.Gender, Company: user.Company, Contact:user.Contact });
+    return this.userCollection.doc(user.id).update({ Username: user.Username, Gender: user.Gender, Company: user.Company, Contact:user.Contact, Image:user.Image });
   }
  
   deleteUser(id: string): Promise<void> {

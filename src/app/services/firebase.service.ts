@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 export interface Idea {
   id?: string,
   name: string,
-  notes: string
+  notes: string,
+  price: string,
+  image?: string,
 }
  
 @Injectable({
@@ -49,7 +51,7 @@ export class FirebaseService {
   }
  
   updateIdea(idea: Idea): Promise<void> {
-    return this.ideaCollection.doc(idea.id).update({ name: idea.name, notes: idea.notes });
+    return this.ideaCollection.doc(idea.id).update({ name: idea.name, notes: idea.notes, price: idea.price, image: idea.image });
   }
  
   deleteIdea(id: string): Promise<void> {
