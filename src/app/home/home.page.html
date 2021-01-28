@@ -1,15 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar >
     <ion-grid>
       <ion-row id="top-nav">
-        <ion-col size="3" size-md="9"></ion-col>
-        <ion-col size="3" size-md="1">
-          <a href="/idea-list" class="top-links">IDEAS</a>
+        <ion-col size="3" size-md="7"></ion-col>
+        <ion-col size="3" size-md="2" class="ion-text-center">
+          <a href="" class="top-links">OUR LOCATION</a>
+          <!-- <a href="/idea-list" class="top-links">IDEAS</a> -->
         </ion-col>
-        <ion-col size="3" size-md="1">
-          <a href="/idea-details" class="top-links">ADD IDEA</a>
+        <ion-col size="3" size-md="2"class="ion-text-center">
+          <a href="" class="top-links">CONTACT US</a>
+          <!-- <a href="/idea-details" class="top-links">ADD IDEA</a> -->
         </ion-col>
-        <ion-col size="3" size-md="1">
+        <ion-col size="3" size-md="1"class="ion-text-center">
           <a href="/login" class="top-links">LOGIN</a>
         </ion-col>
       </ion-row>
@@ -17,7 +19,7 @@
         <ion-col size="1" size-md="1">
           <ion-toolbar>
             <ion-buttons slot="start">
-              <ion-menu-button style="color:#ffa500;"></ion-menu-button>
+              <ion-menu-button color="pnh"></ion-menu-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-col>
@@ -32,12 +34,75 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen="true" class="tertiary">
+<ion-content fullscreen="true" style="background: #80adff;">
 
   <div class="img-home"></div>
 
   <div id="container">
     <ion-grid>
+      <ion-row>
+        <ion-col size="6" size-md="2">
+          <ion-card class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/all.jpg" />
+              <ion-card-content>
+                <ion-card-title>All</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/vini_tape.jpg" />
+              <ion-card-content>
+                <ion-card-title>Hardware</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/bulb.jpg" />
+              <ion-card-content>
+                <ion-card-title>Lighting</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/plumbing.jpg" />
+              <ion-card-content>
+                <ion-card-title>Plumbing</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/paint.jpg" />
+               <ion-card-content>
+                <ion-card-title>Paint</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="2">
+          <ion-card class="cat-card">
+            <button ion-item class="cat-card">
+              <img src="../../assets/icon/electrical.jpg" />
+              <ion-card-content>
+                <ion-card-title>Electrical</ion-card-title>
+              </ion-card-content>
+            </button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
       <ion-row>
         <ion-col size="6" size-md="2">
           <ion-card class="cat-card">

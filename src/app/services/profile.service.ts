@@ -3,7 +3,11 @@ import { AngularFirestore, AngularFirestoreCollection,
   DocumentReference } from '@angular/fire/firestore';
 import { first, map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+<<<<<<< Updated upstream
 import { stringify } from '@angular/compiler/src/util';
+=======
+// import { profile } from 'console';
+>>>>>>> Stashed changes
  
 export interface User {
   id?: string,
@@ -72,7 +76,14 @@ export class ProfileService {
 
     return this.afs.collection<User>('profile', ref => ref.where('Email', '==', email).limit(1)).valueChanges().pipe(
       take(1),
+<<<<<<< Updated upstream
      
+=======
+      map(profile => {
+        profile.id = id;
+        return profile;
+      })
+>>>>>>> Stashed changes
     );
 
   
@@ -95,10 +106,26 @@ export class ProfileService {
 
   }
 
+<<<<<<< Updated upstream
   checkAllUsers(){
     this.afs.collection('profile').valueChanges().subscribe(val => console.log(val))
   }
+=======
+  getUserByEmail(email: string) {
+    return this.afs.collection<User>('profile', ref => ref.where('Email', '==', email).limit(1))
+    .valueChanges().pipe();
+}
+>>>>>>> Stashed changes
  
+// getUserByEmail(email: string): Observable<User> {
+//   return this.userCollection.doc<User>(email).valueChanges().pipe(
+//     take(1),
+//     map(idea => {
+//       idea.Email = email;
+//       return idea
+//     })
+//   );
+// }
   addUser(user: User): Promise<DocumentReference> {
     return this.userCollection.add(user);
   }

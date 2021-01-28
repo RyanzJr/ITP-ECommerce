@@ -38,7 +38,8 @@ const routes: Routes = [
   {
     path: 'idea-details/:id', 
   loadChildren: () => import('./idea-details/idea-details.module').then( m => m.IdeaDetailsPageModule)
-  },  {
+  },
+  {
     path: 'account-list',
     loadChildren: () => import('./manageAccounts/account-list/account-list.module').then( m => m.AccountListPageModule)
   },
@@ -53,8 +54,14 @@ const routes: Routes = [
   {
     path: 'product-list',
     loadChildren: () => import('./manageProducts/product-list/product-list.module').then( m => m.ProductListPageModule)
+  },  {
+    path: 'tapes',
+    loadChildren: () => import('./tapes/tapes.module').then( m => m.TapesPageModule)
   },
-
+  {
+    path: 'others',
+    loadChildren: () => import('./others/others.module').then( m => m.OthersPageModule)
+  },
 
 
 

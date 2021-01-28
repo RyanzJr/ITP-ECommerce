@@ -32,6 +32,7 @@ export class AppComponent {
 
   sideMenu() {  
     this.pagesAdmin =   
+<<<<<<< Updated upstream
     [  
         { 
         title : 'Products',
@@ -43,6 +44,9 @@ export class AppComponent {
         url   : '/profile',  
         icon  : 'person'  
       },   
+=======
+    [    
+>>>>>>> Stashed changes
       {  
         title : 'Manage Accounts',  
         url   : '/account-list',  
@@ -53,6 +57,89 @@ export class AppComponent {
         url   : '/product-list',  
         icon  : 'book'  
       },   
+<<<<<<< Updated upstream
+=======
+      { 
+        title : 'All Products',
+        url   : '/home',
+        icon  : 'pricetags' 
+      },
+      { 
+        title : 'Hardware',
+        children:[
+          {
+            title: "Tapes",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Others",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
+      },
+      { 
+        title : 'Lighting',
+        children:[
+          {
+            title: "LED",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Ligh Bulbs",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
+      },
+      { 
+        title : 'Plumbing',
+        children:[
+          {
+            title: "Pipes",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Water Filter",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
+      },
+      { 
+        title : 'Paint',
+        children:[
+          {
+            title: "Nippon",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Other Company",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
+      },
+      { 
+        title : 'Electrical',
+        children:[
+          {
+            title: "Wires",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Circuit",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
+      },
+>>>>>>> Stashed changes
     ];
 
     this.pagesUser =   
@@ -78,29 +165,79 @@ export class AppComponent {
       },
       { 
         title : 'Hardware',
-        url   : '/home',
-        icon  : 'pricetags' 
+        children:[
+          {
+            title: "Tapes",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Others",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
       },
       { 
         title : 'Lighting',
-        url   : '/home',
-        icon  : 'pricetags' 
+        children:[
+          {
+            title: "LED",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Ligh Bulbs",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
       },
       { 
         title : 'Plumbing',
-        url   : '/home',
-        icon  : 'pricetags' 
+        children:[
+          {
+            title: "Pipes",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Water Filter",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
       },
       { 
         title : 'Paint',
-        url   : '/home',
-        icon  : 'pricetags' 
+        children:[
+          {
+            title: "Nippon",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Other Company",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
       },
       { 
         title : 'Electrical',
-        url   : '/home',
-        icon  : 'pricetags' 
-      }
+        children:[
+          {
+            title: "Wires",
+            url   : '/tapes',
+            icon  : 'pricetags',
+          },
+          {
+            title: "Circuit",
+            url   : '/others',
+            icon  : 'pricetags',
+          },
+        ]
+      },
     ];
   }  
 
