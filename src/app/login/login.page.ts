@@ -5,11 +5,26 @@ import { getMaxListeners } from 'process';
 import { ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProfileService } from 'src/app/services/profile.service';
+import { Observable} from 'rxjs';
+import { stringify } from '@angular/compiler/src/util';
 
+
+
+interface logindetails {
+  email: string,
+  password: string
+}
 
 interface User {
-  email?: string,
-  password?: string
+  id?: string,
+  Username: string,
+  Email?: string,
+  Gender: string,
+  Contact: string,
+  Company: string,
+  Image?: string,
+  Admin?: boolean
 }
 
 @Component({
@@ -19,37 +34,54 @@ interface User {
 })
 export class LoginPage implements OnInit {
 
-  user: User = {
+  logindetails: logindetails = {
     email: "",
     password: ""
   }
 
+  private currentProfile: User;
+ 
+
   constructor(public afAuth: AngularFireAuth,
     private toastCtrl: ToastController,
     private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private profileService: ProfileService,
+        ) { }
 
   async login() {
+    //const delay = ms => new Promise(res => setTimeout(res, ms));
+
     const user = await this.afAuth.signInWithEmailAndPassword(
-      this.user.email,
-      this.user.password
+      this.logindetails.email,
+      this.logindetails.password
     );
     this.showToast("Login Successful!")
+
     //check currentuser email
-    this.router.navigateByUrl("/homeadmin")
     console.log("email:" + (await this.afAuth.currentUser).email)
+
+    this.profileService.getUserByEmail((await this.afAuth.currentUser).email).subscribe(data => this.currentProfile = data[0],
+      (err) => console.error(err),
+      () => this.CheckUserRole())
+
+  }
+
+  CheckBtn(){
+    console.log(this.currentProfile)
+    console.log("----------------------------")
   }
 
   Validation() {
-    if (this.user.email == null) {
+    if (this.logindetails.email == null) {
       this.showToast('Email cannot be empty!');
       return false
     }
-    if (!this.user.email.includes("@")) {
+    if (!this.logindetails.email.includes("@")) {
       this.showToast('Email is not valid!');
       return false
     }
-    if (this.user.password == null) {
+    if (this.logindetails.password == null) {
       this.showToast('Password cannot be empty!');
       return false
     }
@@ -58,11 +90,18 @@ export class LoginPage implements OnInit {
   }
 
   CheckUserRole(){
-    
+    localStorage.setItem('Admin', stringify(this.currentProfile.Admin))
+    localStorage.setItem('Email', this.currentProfile.Email)
+    if(localStorage.getItem('Admin') == "true"){
+      this.router.navigateByUrl("/homeadmin")
+    }
+    else{
+      this.router.navigateByUrl("/homeuser")
+    }
   }
 
   SignIn() {
-    this.authService.SignIn(this.user.email, this.user.password).then(() => {
+    this.authService.SignIn(this.logindetails.email, this.logindetails.password).then(() => {
     }, err => {
       this.showToast('There a problem signing in :(');
     });
@@ -77,6 +116,7 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit() {
+    //this.profileService.checkAllUsers()
   }
 
 }

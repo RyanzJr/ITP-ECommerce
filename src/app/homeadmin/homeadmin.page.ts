@@ -6,9 +6,10 @@ import { MenuController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 
- 
+
 @Component({
   selector: 'app-homeadmin',
   templateUrl: './homeadmin.page.html',
@@ -20,43 +21,58 @@ export class HomeadminPage implements OnInit {
     public afAuth: AngularFireAuth,
     private router: Router,
     private toastCtrl: ToastController,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private profileService: ProfileService) { }
 
+  //checks if currentuser exist  
   isLoggedIn() {
     return this.afAuth.authState.pipe(first()).toPromise();
- }
+  }
 
- async doSomething() {
-  const user = await this.isLoggedIn()
-  if (user) {
-    console.log("user is logged in")
-    this.openAdminMenu()
-  } else {
-    console.log("user is NOTNOTNOT logged in")
-    this.showToast("Please login first!")
-    this.router.navigateByUrl("/login")
- }
-}
-
-  async logOut() {
-      this.SignOut()
-      this.showToast("Sign Out Successful!")
-      console.log("user has logged out")
-      console.log("email:" + (await this.afAuth.currentUser).email)
-      this.router.navigateByUrl("/home")
+  //these codes run immediately when page is loaded
+  async initialize() {
+    const user = await this.isLoggedIn()
+    if (user) {
+      if (localStorage.getItem('Admin') == "true") {
+        console.log("User is logged in!")
+        this.openAdminMenu()
+      }
+      else {
+        console.log("user tried to go admin")
+        this.showToast("You do not have admin privileges!")
+        this.router.navigateByUrl("/homeuser")
+      }
+    } else {
+      console.log("user is NOTNOTNOT logged in")
+      this.showToast("Please login first!")
+      this.router.navigateByUrl("/login")
     }
+  }
 
+  //function runs when signout Btn is clicked
+  async logOut() {
+    this.SignOut()
+    this.showToast("Sign Out Successful!")
+    console.log("user has logged out")
+    console.log("email:" + (await this.afAuth.currentUser).email)
+    this.router.navigateByUrl("/home")
+  }
+
+  //set menu as admin menu
   openAdminMenu() {
     this.menu.enable(true, 'admin');
   }
 
+  //signs user out
   SignOut() {
     this.authService.SignOut().then(() => {
+      console.log(this.afAuth.currentUser)
     }, err => {
       this.showToast('There a problem signing out :(');
     });
   }
 
+  //function for displaying toasts
   showToast(msg) {
     this.toastCtrl.create({
       message: msg,
@@ -64,8 +80,10 @@ export class HomeadminPage implements OnInit {
     }).then(toast => toast.present());
   }
 
+  //function runs on init
   ngOnInit() {
-    this.doSomething()
+    //this.profileService.checkAllUsers()
+    this.initialize()
   }
 
 

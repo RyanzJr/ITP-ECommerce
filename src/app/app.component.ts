@@ -35,7 +35,7 @@ export class AppComponent {
     [  
         { 
         title : 'Products',
-        url   : '/home',
+        url   : '/homeadmin',
         icon  : 'pricetags' 
         },
       { 
@@ -53,18 +53,13 @@ export class AppComponent {
         url   : '/product-list',  
         icon  : 'book'  
       },   
-      {
-          title : 'Sign Out',
-          url   : '/home',
-          icon  : 'log-out'
-      },
     ];
 
     this.pagesUser =   
     [  
       { 
         title : 'Products',
-        url   : '/home',
+        url   : '/homeuser',
         icon  : 'pricetags' 
         },
       { 
@@ -72,11 +67,6 @@ export class AppComponent {
         url   : '/profile',  
         icon  : 'person'  
       },    
-      {
-          title : 'Sign Out',
-          url   : '/home',
-          icon  : 'log-out'
-      },
     ];  
 
     this.pagesPublic =   
