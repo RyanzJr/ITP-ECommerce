@@ -18,7 +18,7 @@ export class AddAccountPage implements OnInit {
 
   user: User = {
     id: "",
-    Username: "Ryan Dan",
+    Username: "",
     Email: "",
     Gender: "",
     Contact: "",
@@ -79,7 +79,7 @@ export class AddAccountPage implements OnInit {
   addAccount() {
     this.authService.SignUp(this.user.Email, this.password).then(() => {
     }, err => {
-      this.showToast('There was a problem adding an Firebase Account :(');
+      this.showToast('There was a problem adding a Firebase Account :(');
     });
   }
 
