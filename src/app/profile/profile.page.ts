@@ -55,13 +55,14 @@ export class ProfilePage implements OnInit {
   }
 
   async updateProfile() {
+    this.user.Image = await this.UploadFile(this.user.id,this.selectedFile);
     this.ideaService.updateUser(this.user).then(() => {
       this.router.navigateByUrl('/profile');
       this.showToast('Idea updated');
     }, err => {
       this.showToast('There was a problem updating your profile :(');
     });
-    this.user.Image = await this.UploadFile(this.user.id,this.selectedFile);
+    //this.user.Image = await this.UploadFile(this.user.id,this.selectedFile);
     console.log(this.user.Image );
   }
 
