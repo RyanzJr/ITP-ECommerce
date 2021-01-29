@@ -29,11 +29,49 @@ ion-avatar img{
     text-align: center;
 }
 
-
-
-.info{
-    color:cornflowerblue;
+.top-links {
+    text-decoration: none;
+    color: #005AFF;
+    font-size: 12px;
+    margin: 0px auto;
 }
 
+#top-nav {
+  background: rgb(245, 245, 245);
+}
 
+ion-content{
+    --background: rgb(128,173,255);
+    --background: linear-gradient(0deg, rgba(128,173,255,1) 0%, rgba(196,217,255,1) 10%, rgba(255,255,255,1) 100%);
+  }
+
+.info{
+    color: #ffa500;
+}
+
+@media screen and (min-width: 320px) {
+    .info-card {
+        width: 90%;
+        margin: 20px auto 0px;
+        }
+        
+    .update-btn{
+        margin-top: 5%;
+        margin-left:27%;
+        margin-right:27%;
+    }
+}
+    
+@media screen and (min-width: 758px) {
+    .info-card {
+        width: 45%;
+        margin: 30px auto;
+    }
+
+    .update-btn{
+        margin-top: 0.5%;
+        margin-left:43%;
+        margin-right:43%;
+    }
+}
 
