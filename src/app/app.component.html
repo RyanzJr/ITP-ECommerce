@@ -1,0 +1,109 @@
+<ion-app>  
+  <ion-menu side="start" menuId="admin" contentId="admin">  
+    <ion-header>  
+      <ion-toolbar color="pnh">  
+        <ion-title>Admin</ion-title>  
+      </ion-toolbar>   
+    </ion-header>  
+    <ion-content>  
+      <div *ngFor="let pages of pagesAdmin"> 
+
+        <ion-menu-toggle *ngIf="pages.url">  
+          <ion-item [routerLink]="pages.url" routerDirection="root" routerLinkActive="active">  
+            <ion-icon [name]="pages.icon" slot="start"></ion-icon>  
+            <ion-label>
+              {{pages.title}}   
+            </ion-label>  
+          </ion-item>  
+        </ion-menu-toggle>
+
+        <ion-item button *ngIf="pages.children?.length > 0" (click)="pages.open = !pages.open" 
+          [class.active-parent]="pages.open" detail="false">
+          <ion-icon slot="start" name="arrow-forward" *ngIf="!pages.open"></ion-icon>  
+          <ion-icon slot="start" name="arrow-down" *ngIf="pages.open"></ion-icon>  
+          <ion-label>
+            {{pages.title}}   
+          </ion-label>  
+        </ion-item>
+
+        <ion-list *ngIf="pages.open">
+          <ion-menu-toggle>
+            <ion-item *ngFor="let sub of pages.children" [routerLink]="sub.url" 
+            routerDirection="root" routerLinkActive="active">  
+              <ion-icon [name]="sub.icon" slot="start"></ion-icon>  
+              <ion-label>
+                {{sub.title}}   
+              </ion-label>  
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+      </div>   
+    </ion-content>   
+  </ion-menu>  
+  <ion-router-outlet Id="admin"></ion-router-outlet> 
+
+  
+  <ion-menu side="start" menuId="user" contentId="user">  
+    <ion-header>  
+      <ion-toolbar color="success">  
+        <ion-title>User</ion-title>  
+      </ion-toolbar>   
+    </ion-header>  
+    <ion-content>  
+      <ion-list *ngFor="let pages of pagesUser">  
+        <ion-menu-toggle auto-hide="true">  
+          <ion-item [routerLink]="pages.url" routerDirection="forward">  
+            <ion-icon [name]="pages.icon" slot="start"></ion-icon>  
+              {{pages.title}}   
+          </ion-item>  
+        </ion-menu-toggle>  
+      </ion-list>  
+    </ion-content>   
+  </ion-menu>  
+  <ion-router-outlet Id="user"></ion-router-outlet> 
+
+  <ion-menu side="start" menuId="public" contentId="public">  
+    <ion-header>  
+      <ion-toolbar color="pnh">  
+        <ion-title>Public</ion-title>  
+      </ion-toolbar>   
+    </ion-header>  
+    <ion-content>  
+      <div *ngFor="let pages of pagesPublic"> 
+
+        <ion-menu-toggle *ngIf="pages.url">  
+          <ion-item [routerLink]="pages.url" routerDirection="root" routerLinkActive="active">  
+            <ion-icon [name]="pages.icon" slot="start"></ion-icon>  
+            <ion-label>
+              {{pages.title}}   
+            </ion-label>  
+          </ion-item>  
+        </ion-menu-toggle>
+
+        <ion-item button *ngIf="pages.children?.length > 0" (click)="pages.open = !pages.open" 
+          [class.active-parent]="pages.open" detail="false">
+          <ion-icon slot="start" name="arrow-forward" *ngIf="!pages.open"></ion-icon>  
+          <ion-icon slot="start" name="arrow-down" *ngIf="pages.open"></ion-icon>  
+          <ion-label>
+            {{pages.title}}   
+          </ion-label>  
+        </ion-item>
+
+        <ion-list *ngIf="pages.open">
+          <ion-menu-toggle>
+            <ion-item *ngFor="let sub of pages.children" [routerLink]="sub.url" 
+            routerDirection="root" routerLinkActive="active">  
+              <ion-icon [name]="sub.icon" slot="start"></ion-icon>  
+              <ion-label>
+                {{sub.title}}   
+              </ion-label>  
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+      </div>  
+    </ion-content>   
+  </ion-menu>  
+  <ion-router-outlet Id="public" main></ion-router-outlet>
+</ion-app>
