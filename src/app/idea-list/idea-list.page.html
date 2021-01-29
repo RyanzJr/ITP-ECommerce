@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button defaultHref="/homeadmin"></ion-back-button>
     </ion-buttons>
     <ion-title>My Ideas</ion-title>
   </ion-toolbar>
@@ -19,9 +19,9 @@
       <ion-thumbnail slot="start">
         <img [src]="idea.image">
       </ion-thumbnail>
-      {{ idea.name }}
+      {{ idea.name }} ${{ idea.price}}
     </ion-item>
   </ion-list>
 
-  
+  <p>{{ideas.Name}}</p>
 </ion-content>

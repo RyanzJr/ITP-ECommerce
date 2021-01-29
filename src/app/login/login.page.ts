@@ -11,16 +11,13 @@ import { stringify } from '@angular/compiler/src/util';
 
 
 
-<<<<<<< Updated upstream
 interface logindetails {
   email: string,
   password: string
 }
 
-=======
->>>>>>> Stashed changes
 interface User {
-  id?: String,
+  id?: string,
   Username: string,
   Email?: string,
   Gender: string,
@@ -72,7 +69,6 @@ export class LoginPage implements OnInit {
 
   CheckBtn(){
     console.log(this.currentProfile)
-    console.log(this.currentProfile.id)
     console.log("----------------------------")
   }
 

@@ -32,21 +32,8 @@ export class AppComponent {
 
   sideMenu() {  
     this.pagesAdmin =   
-<<<<<<< Updated upstream
-    [  
-        { 
-        title : 'Products',
-        url   : '/homeadmin',
-        icon  : 'pricetags' 
-        },
-      { 
-        title : 'Profile',  
-        url   : '/profile',  
-        icon  : 'person'  
-      },   
-=======
+
     [    
->>>>>>> Stashed changes
       {  
         title : 'Manage Accounts',  
         url   : '/account-list',  
@@ -54,14 +41,13 @@ export class AppComponent {
       },  
       {  
         title : 'Manage Products',  
-        url   : '/product-list',  
+        url   : '/idea-list',  
         icon  : 'book'  
       },   
-<<<<<<< Updated upstream
-=======
+
       { 
         title : 'All Products',
-        url   : '/home',
+        url   : '/homeadmin',
         icon  : 'pricetags' 
       },
       { 
@@ -139,7 +125,6 @@ export class AppComponent {
           },
         ]
       },
->>>>>>> Stashed changes
     ];
 
     this.pagesUser =   

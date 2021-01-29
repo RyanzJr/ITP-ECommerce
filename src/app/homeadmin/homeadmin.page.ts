@@ -17,8 +17,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class HomeadminPage implements OnInit {
 
-  constructor(
-    private menu: MenuController,
+  constructor(private menu: MenuController,
     public afAuth: AngularFireAuth,
     private router: Router,
     private toastCtrl: ToastController,
@@ -52,7 +51,6 @@ export class HomeadminPage implements OnInit {
 
   //function runs when signout Btn is clicked
   async logOut() {
-<<<<<<< Updated upstream
     this.SignOut()
     this.showToast("Sign Out Successful!")
     console.log("user has logged out")
@@ -61,23 +59,11 @@ export class HomeadminPage implements OnInit {
   }
 
   //set menu as admin menu
-=======
-      this.SignOut()
-      this.showToast("Sign Out Successful!")
-      console.log("user has logged out")
-      console.log("email:" + (await this.afAuth.currentUser).email)
-      this.router.navigateByUrl("/home")
-    }
->>>>>>> Stashed changes
   openAdminMenu() {
     this.menu.enable(true, 'admin');
   }
 
-<<<<<<< Updated upstream
   //signs user out
-=======
-
->>>>>>> Stashed changes
   SignOut() {
     this.authService.SignOut().then(() => {
       console.log(this.afAuth.currentUser)
