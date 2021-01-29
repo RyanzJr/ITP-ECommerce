@@ -22,7 +22,6 @@ export interface User {
 export class ProfileService {
   private users: Observable<User[]>;
   private userCollection: AngularFirestoreCollection<User>;
-  //public profileObj: User 
 
  
   constructor(private afs: AngularFirestore) {

@@ -12,7 +12,8 @@ export class IdeaDetailsPage implements OnInit {
 
   idea: Idea = {
     name: '',
-    notes: ''
+    notes: '',
+    price: '',
   };
 
   constructor(private activatedRoute: ActivatedRoute, private ideaService: FirebaseService,
