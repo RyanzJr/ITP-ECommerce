@@ -15,6 +15,7 @@ export class AddAccountPage implements OnInit {
 
   //will be stored seperately for security reasons
   password: string;
+  repassword: string;
 
   user: User = {
     id: "",
@@ -47,6 +48,10 @@ export class AddAccountPage implements OnInit {
       this.showToast('Email cannot be empty!');
       return false
     }
+    if (this.password != this.repassword) {
+      this.showToast("Both password does not match!");
+      return false
+    }
     if (!this.user.Email.includes("@")) {
       this.showToast('Email is not valid!');
       return false
@@ -70,11 +75,17 @@ export class AddAccountPage implements OnInit {
   } 
 
   addProfile() {
+    
+
+    
     this.profileService.addUser(this.user).then(() => {
     }, err => {
       this.showToast('There was a problem adding a Profile :(');
     });
   }
+
+  
+
 
   addAccount() {
     this.authService.SignUp(this.user.Email, this.password).then(() => {

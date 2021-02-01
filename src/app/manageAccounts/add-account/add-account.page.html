@@ -16,14 +16,35 @@
       <ion-card-subtitle>Create Account</ion-card-subtitle>
     </ion-card-header>  
     <ion-card-content>
+
       <ion-item>
         <ion-label position="stacked">Email</ion-label>
         <ion-input id="email" [(ngModel)]="user.Email"></ion-input>
       </ion-item>
 
       <ion-item>
+        <ion-label position="stacked">UserName</ion-label>
+        <ion-input id="userName" [(ngModel)]="user.Username"></ion-input>
+      </ion-item>  
+
+      <ion-item>
         <ion-label position="stacked">Password</ion-label>
         <ion-input id="password" type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Re-Password</ion-label>
+        <ion-input id="repassword" type="password" [(ngModel)]="repassword"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Company</ion-label>
+        <ion-input id="Company" [(ngModel)]="user.Company"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Contact</ion-label>
+        <ion-input id="Contact" [(ngModel)]="user.Contact"></ion-input>
       </ion-item>
 
       <ion-button (click)="createAccount()" class="login-button" color="success" expand="block">Create new Account</ion-button>
