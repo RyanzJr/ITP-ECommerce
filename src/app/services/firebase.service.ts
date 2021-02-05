@@ -10,6 +10,9 @@ export interface Idea {
   notes: string,
   price: string,
   image?: string,
+  size?: [],
+  series: string,
+  category: string,
 }
  
 @Injectable({
@@ -45,13 +48,13 @@ export class FirebaseService {
       })
     );
   }
- 
+  
   addIdea(idea: Idea): Promise<DocumentReference> {
     return this.ideaCollection.add(idea);
   }
  
   updateIdea(idea: Idea): Promise<void> {
-    return this.ideaCollection.doc(idea.id).update({ name: idea.name, notes: idea.notes, price: idea.price, image: idea.image });
+    return this.ideaCollection.doc(idea.id).update({ name: idea.name, notes: idea.notes, price: idea.price, image: idea.image, id:idea.id });
   }
  
   deleteIdea(id: string): Promise<void> {

@@ -11,13 +11,19 @@ import { AngularFireStorage} from '@angular/fire/storage';
 })
 export class IdeaDetailsPage implements OnInit {
 
+  url:any;
+
   selectedFile : any;
+  test : ["22mm x 33mm x 43mm", "32mm x 12mm x 89mm"];
 
   idea: Idea = {
     name: '',
     notes: '',
     price: '',
     image: '',
+    category: '',
+    series: '',
+    //size: [{id:""},{text:""}],
     
   };
 
@@ -37,13 +43,14 @@ export class IdeaDetailsPage implements OnInit {
 
  async addIdea() {
     //this.idea.image = await this.UploadFile(this.idea.id, this.selectedFile)
+    //this.idea.size = this.test
     this.ideaService.addIdea(this.idea).then(() => {
       this.router.navigateByUrl('/idea-list');
       this.showToast('Idea added');
     }, err => {
       this.showToast('There was a problem adding your idea :(');
     });
-    this.idea.image = await this.UploadFile(this.idea.id, this.selectedFile)
+    //this.idea.image = await this.UploadFile(this.idea.id, this.selectedFile)
   }
 
   deleteIdea() {
@@ -56,7 +63,11 @@ export class IdeaDetailsPage implements OnInit {
   }
  
   async updateIdea() {
-    this.idea.image = await this.UploadFile(this.idea.id, this.selectedFile)
+    this.url = await this.UploadFile(this.idea.id, this.selectedFile)
+    if (this.url != null){
+      this.idea.image = this.url
+      
+    }
     this.ideaService.updateIdea(this.idea).then(() => {
       this.router.navigateByUrl('/idea-list');
       this.showToast('Idea updated');
