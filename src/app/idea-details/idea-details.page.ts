@@ -3,18 +3,33 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService, Idea } from 'src/app/services/firebase.service';
 import { ToastController } from '@ionic/angular';
 import { AngularFireStorage} from '@angular/fire/storage';
+import { priceSize, PriceSizeService } from '../services/price-size.service';
+import { Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-idea-details',
   templateUrl: './idea-details.page.html',
   styleUrls: ['./idea-details.page.scss'],
 })
+
+
 export class IdeaDetailsPage implements OnInit {
 
+  priceChecked: false;
+  test1:any;
+
   url:any;
+  private priceSizeList: Observable<priceSize[]>;
 
   selectedFile : any;
   test : ["22mm x 33mm x 43mm", "32mm x 12mm x 89mm"];
+
+  priceSize: priceSize ={
+    id:'',
+    size:'',
+    price:''
+  }
 
   idea: Idea = {
     name: '',
@@ -28,9 +43,15 @@ export class IdeaDetailsPage implements OnInit {
   };
 
   constructor(private activatedRoute: ActivatedRoute, private ideaService: FirebaseService,
-    private toastCtrl: ToastController, private router: Router, private store:AngularFireStorage) { }
+    private toastCtrl: ToastController, private router: Router, private store:AngularFireStorage,
+    ) { }
 
   ngOnInit() {
+   
+
+    
+
+    
   }
   ionViewWillEnter() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -39,6 +60,8 @@ export class IdeaDetailsPage implements OnInit {
         this.idea = idea;
       });
     }
+    this.test1 = this.ideaService.getPriceSize(id)
+    this.priceSizeList = this.test1
   }
 
  async addIdea() {
@@ -97,6 +120,13 @@ export class IdeaDetailsPage implements OnInit {
       console.log(error);}
     }
     
+  }
+
+  addPriceSize(){
+    this.priceSize.id = this.idea.id
+    this.ideaService.addPriceSize(this.priceSize)
+    this.priceSize.price = ''
+    this.priceSize.size = ''
   }
  
 

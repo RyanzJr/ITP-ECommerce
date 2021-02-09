@@ -14,6 +14,11 @@ export class IdeaDetailsPage implements OnInit {
     name: '',
     notes: '',
     price: '',
+    image: '',
+    category: '',
+    series: '',
+    //size: [{id:""},{text:""}],
+    
   };
 
   constructor(private activatedRoute: ActivatedRoute, private ideaService: FirebaseService,

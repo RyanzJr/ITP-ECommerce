@@ -33,11 +33,11 @@ export class PriceSizeService {
     );
   }
 
-  getDetails(): Observable<priceSize[]> {
+  getPriceSizes(): Observable<priceSize[]> {
     return this.priceSizes;
   }
  
-  getIdea(id: string): Observable<priceSize> {
+  getPriceSize(id: string): Observable<priceSize> {
     return this.priceSizeCollection.doc<priceSize>(id).valueChanges().pipe(
       take(1),
       map(idea => {
@@ -47,7 +47,7 @@ export class PriceSizeService {
     );
   }
   
-  addIdea(idea: priceSize): Promise<DocumentReference> {
+  addPriceSize(idea: priceSize): Promise<DocumentReference> {
     return this.priceSizeCollection.add(idea);
   }
  

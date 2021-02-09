@@ -9,12 +9,12 @@
  
 <ion-content padding>
 
-  <div class = "Image">
-  <img [src]="idea.image" height='70%' width='40%'>
+  <div *ngIf="idea.id"  class = "Image">
+  <img [src]="idea.image" alt="no image yet" height='70%' width='40%'>
   </div>
   
 
-  <ion-item>
+  <ion-item *ngIf="idea.id">
     <input type="file" name="inputFile" (change)="chooseFile($event)" required>
   </ion-item>
  
@@ -38,10 +38,36 @@
     <ion-textarea [(ngModel)]="idea.notes" rows="6"></ion-textarea>
   </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Product Price</ion-label>
-    <ion-input [(ngModel)]="idea.price"></ion-input>
+  <ion-item *ngIf="idea.id">
+    <ion-label position="stacked">Product Size</ion-label>
+    <ion-input [(ngModel)]="priceSize.size"></ion-input>
   </ion-item>
+
+  <ion-item *ngIf="idea.id">
+    <ion-label position="stacked">Product Price</ion-label>
+    <ion-input [(ngModel)]="priceSize.price"></ion-input>
+  </ion-item>
+
+    
+      <ion-list>
+        
+        <ion-item *ngFor="let priceSize of (priceSizeList | async)" >
+          
+          {{priceSize.size}} ------------------  ${{priceSize.price}}
+          
+        </ion-item>
+       
+
+        </ion-list>
+   
+
+
+
+  <ion-button *ngIf="idea.id" expand="full" fill="clear" color="success" (click)="addPriceSize()">
+    <ion-icon name="checkmark" slot="start"></ion-icon>
+    Add Price
+  </ion-button>
+
 </ion-content>
  
 <ion-footer *ngIf="!idea.id">
