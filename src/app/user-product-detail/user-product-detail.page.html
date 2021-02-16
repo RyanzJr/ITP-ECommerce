@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Idea Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+<ion-card>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div *ngIf="idea.id"  class = "Image">
+            <img [src]="idea.image" alt="no image yet" height='70%' width='80%'>
+            </div>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Product Name</ion-label>
+            <ion-input [disabled]="true" [(ngModel)]="idea.name"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label position="stacked">Product Category</ion-label>
+            <ion-input disabled="true" [(ngModel)]="idea.category"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label position="stacked">Product Series</ion-label>
+            <ion-input disabled="true" [(ngModel)]="idea.Series"></ion-input>
+          </ion-item>
+         
+          <ion-item>
+            <ion-label position="stacked">Product Description</ion-label>
+            <ion-textarea disabled="true" [(ngModel)]="idea.notes" rows="6"></ion-textarea>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="satcked">Select Size</ion-label>
+            <ion-select class="select"  [(ngModel)] = "idea.price" okText="Okay" cancelText="Dismiss">
+              <ion-select-option class="select" *ngFor="let priceSize of (priceSizeList | async)">
+                <ion-label class="selecct">{{priceSize.size}} ---  ${{priceSize.price}}</ion-label>
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+  
+
+  </ion-content>

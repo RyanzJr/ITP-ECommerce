@@ -15,11 +15,15 @@
   </ion-fab>
  
   <ion-list>
-    <ion-item button [routerLink]="['/idea-details', idea.id]" *ngFor="let idea of (ideas | async)">
+    <ion-item *ngFor="let idea of (ideas | async)">
       <ion-thumbnail slot="start">
         <img [src]="idea.image">
       </ion-thumbnail>
-      {{ idea.name }} ${{ idea.price}}
+      {{ idea.name }} 
+      <ion-button slot="end" [routerLink]="['/idea-details', idea.id]">admin side Demo</ion-button>
+      
+      <ion-button slot="end" [routerLink]="['/user-product-detail', idea.id]">user side Demo</ion-button>
+      
     </ion-item>
   </ion-list>
 

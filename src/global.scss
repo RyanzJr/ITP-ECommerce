@@ -60,6 +60,15 @@
     --ion-color-shade: var(--ion-color-tertiary-shade);
     --ion-color-tint: var(--ion-color-tertiary-tint);
   }
+
+  .alert-radio-label.sc-ion-alert-md,
+.alert-radio-label.sc-ion-alert-ios {
+   white-space: normal;
+}
+.alert-tappable.alert-radio {
+   height: auto;
+   contain: content;
+}
   
   
   

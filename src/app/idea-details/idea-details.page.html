@@ -38,6 +38,17 @@
     <ion-textarea [(ngModel)]="idea.notes" rows="6"></ion-textarea>
   </ion-item>
 
+  <ion-list class="listItem">
+        
+    <ion-item text-center lines="none" class="listItem" *ngFor="let priceSize of (priceSizeList | async)"  >
+      
+      <ion-label>{{priceSize.size}} ------------------  ${{priceSize.price}}</ion-label>
+      
+    </ion-item>
+   
+
+    </ion-list>
+
   <ion-item *ngIf="idea.id">
     <ion-label position="stacked">Product Size</ion-label>
     <ion-input [(ngModel)]="priceSize.size"></ion-input>
@@ -49,16 +60,7 @@
   </ion-item>
 
     
-      <ion-list>
-        
-        <ion-item *ngFor="let priceSize of (priceSizeList | async)" >
-          
-          {{priceSize.size}} ------------------  ${{priceSize.price}}
-          
-        </ion-item>
-       
-
-        </ion-list>
+     
    
 
 
